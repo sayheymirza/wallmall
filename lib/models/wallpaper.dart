@@ -11,6 +11,8 @@ class WallpaperModel {
   late DateTime releasedAt;
   // size number
   late int size;
+  // colors string[]
+  late List<String> colors;
 
   WallpaperModel({
     required this.id,
@@ -21,6 +23,7 @@ class WallpaperModel {
     required this.tags,
     required this.releasedAt,
     required this.size,
+    required this.colors,
   });
 
   // from json factory
@@ -34,6 +37,7 @@ class WallpaperModel {
       tags: json['tags'].cast<String>(),
       releasedAt: DateTime.parse(json['releasedAt']),
       size: json['size'],
+      colors: json['colors'].cast<String>(),
     );
   }
 
@@ -48,6 +52,7 @@ class WallpaperModel {
       'tags': tags,
       'releasedAt': releasedAt.toIso8601String(),
       'size': size,
+      'colors': colors,
     };
   }
 }

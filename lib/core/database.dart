@@ -23,7 +23,8 @@ class _Database {
         categories TEXT,
         tags TEXT,
         releasedAt TEXT,
-        size INTEGER
+        size INTEGER,
+        colors TEXT
       )
     ''');
   }
