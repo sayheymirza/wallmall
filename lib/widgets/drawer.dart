@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class DrawerWieget extends StatefulWidget {
   const DrawerWieget({super.key});
@@ -8,6 +9,19 @@ class DrawerWieget extends StatefulWidget {
 }
 
 class _DrawerWiegetState extends State<DrawerWieget> {
+  String version = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    PackageInfo.fromPlatform().then((packageInfo) {
+      setState(() {
+        version = packageInfo.version;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -77,9 +91,9 @@ class _DrawerWiegetState extends State<DrawerWieget> {
           color: Colors.transparent,
         ),
         // version 0.0.1
-        const ListTile(
+        ListTile(
           dense: true,
-          title: Text("Version 0.0.1"),
+          title: Text("Version $version"),
         ),
       ],
     );

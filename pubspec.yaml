@@ -47,6 +47,7 @@ dependencies:
   connectivity_plus: ^5.0.1
   shimmer: ^3.0.0
   dynamic_color: ^1.6.8
+  package_info_plus: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -100,3 +101,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  assets:
+    - assets/images/logo.png
