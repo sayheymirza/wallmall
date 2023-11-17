@@ -4,8 +4,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="wallmall"
-        android:name="WallMall"
+        android:label="WallMall"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
