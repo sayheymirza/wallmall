@@ -6,5 +6,13 @@ ThemeData theme = ThemeData(
     accentColor: Colors.deepPurpleAccent,
   ),
   scaffoldBackgroundColor: Colors.white,
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.white,
+    surfaceTintColor: Colors.white,
+  ),
+  drawerTheme: const DrawerThemeData(
+    backgroundColor: Colors.white,
+    surfaceTintColor: Colors.white,
+  ),
   useMaterial3: true,
 );

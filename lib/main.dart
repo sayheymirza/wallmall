@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:wallmall/app.dart';
+import 'package:wallmall/core/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,8 +11,8 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       systemStatusBarContrastEnforced: true,
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarColor: Colors.white.withOpacity(0.1),
+      systemNavigationBarDividerColor: Colors.white.withOpacity(0.1),
       systemNavigationBarIconBrightness: Brightness.dark,
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: Colors.white.withOpacity(0.1),
@@ -20,8 +22,17 @@ void main() {
 //Setting SystmeUIMode
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.edgeToEdge,
-    overlays: [SystemUiOverlay.top],
+    overlays: [],
   );
 
-  runApp(const App());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ShareProvider(),
+        ),
+      ],
+      child: const App(),
+    ),
+  );
 }

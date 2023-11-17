@@ -1,18 +1,22 @@
+import 'package:wallmall/models/category.dart';
+import 'package:wallmall/models/color.dart';
+import 'package:wallmall/models/tag.dart';
+
 class WallpaperModel {
   late int id;
   late String image;
-  late String name;
-  late String description;
+  late String? name;
+  late String? description;
   // categories string[]
-  late List<String> categories;
+  late List<CategoryModel> categories;
   // tags string[]
-  late List<String> tags;
+  late List<TagModel> tags;
   // release date
   late DateTime releasedAt;
   // size number
-  late int size;
+  late double size;
   // colors string[]
-  late List<String> colors;
+  late List<ColorModel> colors;
 
   WallpaperModel({
     required this.id,
@@ -33,11 +37,13 @@ class WallpaperModel {
       image: json['image'],
       name: json['name'],
       description: json['description'],
-      categories: json['categories'].cast<String>(),
-      tags: json['tags'].cast<String>(),
-      releasedAt: DateTime.parse(json['releasedAt']),
-      size: json['size'],
-      colors: json['colors'].cast<String>(),
+      categories: json['categories']?.cast<CategoryModel>() ?? [],
+      tags: json['tags']?.cast<TagModel>() ?? [],
+      releasedAt: json['releasedAt'] != null
+          ? DateTime.parse(json['releasedAt'])
+          : DateTime.now(),
+      size: json['size'] ?? 0.0,
+      colors: json['colors']?.cast<ColorModel>() ?? [],
     );
   }
 
@@ -53,6 +59,36 @@ class WallpaperModel {
       'releasedAt': releasedAt.toIso8601String(),
       'size': size,
       'colors': colors,
+    };
+  }
+}
+
+class WallpapersResponseModel {
+  late List<WallpaperModel> wallpapers;
+  late int count;
+  late int last;
+
+  WallpapersResponseModel({
+    required this.wallpapers,
+    required this.count,
+    required this.last,
+  });
+
+  // from json factory
+  factory WallpapersResponseModel.fromJson(Map<String, dynamic> json) {
+    return WallpapersResponseModel(
+      wallpapers: json['wallpapers'],
+      count: json['count'],
+      last: json['last'],
+    );
+  }
+
+  // to json
+  Map<String, dynamic> toJson() {
+    return {
+      'wallpapers': wallpapers,
+      'count': count,
+      'last': last,
     };
   }
 }
