@@ -1,0 +1,25 @@
+{
+  "@@locale": "en",
+  "appTitle": "Wall Mall",
+  "@appTitle": {
+    "description": "Wall Mall"
+  },
+  "newWallpapers": "New Wallpapers",
+  "categories": "Categories",
+  "colors": "Colors",
+  "welcomeTo": "Welcome to",
+  "wallmall": "Wall Mall",
+  "yourWallpaperApp": "Your Wallpaper App",
+  "noResultsForThisCategory": "No results for this category",
+  "countWallpapersForThisCategory": "{count} wallpapers for this category",
+  "noResultsForThisColor": "No results for this color",
+  "countWallpapersForThisColor": "{count} wallpapers for this color",
+  "myFavorites": "My Favorites",
+  "youDontHaveFavorites": "You don't have favorites yet",
+  "countWallpapersYouHaveFavorited": "{count} wallpapers you have favorited",
+  "searchWallpaper": "Search Wallpaper",
+  "setAsWallpaper": "Set as Wallpaper",
+  "privacy": "Privacy",
+  "version": "Version {version}",
+  "menu": "Menu"
+}

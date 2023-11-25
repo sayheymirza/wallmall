@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wallmall/api/api.dart';
+import 'package:wallmall/core/provider.dart';
 import 'package:wallmall/models/color.dart';
 import 'package:wallmall/widgets/color.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ColorsView extends StatefulWidget {
   const ColorsView({super.key});
@@ -85,6 +89,8 @@ class _ColorsViewState extends State<ColorsView> {
   }
 
   Widget header() {
+    var provider = Provider.of<ShareProvider>(context);
+
     return SliverAppBar(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
@@ -99,14 +105,16 @@ class _ColorsViewState extends State<ColorsView> {
                 vertical: 24,
                 horizontal: 24,
               ),
-              alignment: Alignment.bottomLeft,
-              child: const Column(
+              alignment: provider.locale == "en"
+                  ? Alignment.bottomLeft
+                  : Alignment.bottomRight,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "Colors",
-                    style: TextStyle(
+                    AppLocalizations.of(context)!.colors,
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),

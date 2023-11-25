@@ -5,6 +5,8 @@ import 'package:wallmall/models/wallpaper.dart';
 import 'package:wallmall/widgets/ad.dart';
 import 'package:wallmall/widgets/wallpaper.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
 
@@ -149,10 +151,10 @@ class _SearchViewState extends State<SearchView> {
           Expanded(
             child: TextField(
               focusNode: textFieldFocusNode,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Search wallpaper',
-                hintStyle: TextStyle(
+                hintText: AppLocalizations.of(context)!.searchWallpaper,
+                hintStyle: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),

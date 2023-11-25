@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerWieget extends StatefulWidget {
   const DrawerWieget({super.key});
@@ -30,13 +31,13 @@ class _DrawerWiegetState extends State<DrawerWieget> {
         Container(
           padding: const EdgeInsets.all(16),
           height: 200,
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                "WallMall",
-                style: TextStyle(
+                AppLocalizations.of(context)!.wallmall,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -47,14 +48,16 @@ class _DrawerWiegetState extends State<DrawerWieget> {
         // privacy
         ListTile(
           leading: const Icon(Icons.security),
-          title: const Text("Privacy"),
+          title: Text(
+            AppLocalizations.of(context)!.privacy,
+          ),
           onTap: () {
             Navigator.pushNamed(
               context,
               '/_/page',
               arguments: {
                 "key": "privacy",
-                "title": "Privacy",
+                "title": AppLocalizations.of(context)!.privacy,
               },
             );
           },
@@ -62,7 +65,9 @@ class _DrawerWiegetState extends State<DrawerWieget> {
         // favorites
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text("My favorites"),
+          title: Text(
+            AppLocalizations.of(context)!.myFavorites,
+          ),
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/_/favorites');
@@ -73,14 +78,18 @@ class _DrawerWiegetState extends State<DrawerWieget> {
           color: Colors.transparent,
         ),
         ListTile(
-          title: const Text("Categories"),
+          title: Text(
+            AppLocalizations.of(context)!.categories,
+          ),
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/_/categories');
           },
         ),
         ListTile(
-          title: const Text("Colors"),
+          title: Text(
+            AppLocalizations.of(context)!.colors,
+          ),
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/_/colors');
@@ -93,7 +102,9 @@ class _DrawerWiegetState extends State<DrawerWieget> {
         // version 0.0.1
         ListTile(
           dense: true,
-          title: Text("Version $version"),
+          title: Text(
+            AppLocalizations.of(context)!.version(version),
+          ),
         ),
       ],
     );

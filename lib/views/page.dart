@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wallmall/api/api.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:wallmall/core/connectivity.dart';
 import 'package:wallmall/core/database.dart';
+import 'package:wallmall/core/provider.dart';
 
 class PageView extends StatefulWidget {
   const PageView({super.key});
@@ -22,6 +24,7 @@ class _PageViewState extends State<PageView> {
     // wait for the widget to be rendered
     WidgetsBinding.instance.addPostFrameCallback((_) {
       var args = ModalRoute.of(context)!.settings.arguments as dynamic;
+      var provider = Provider.of<ShareProvider>(context, listen: false);
 
       // set title
       setState(() {
@@ -29,15 +32,21 @@ class _PageViewState extends State<PageView> {
       });
 
       // fetch page
-      fetchPage(args["key"]);
+      fetchPage(
+        args["key"],
+        locale: provider.locale,
+      );
     });
   }
 
-  void fetchPage(String key) async {
+  void fetchPage(String key, {String locale = "en"}) async {
     if (await connectivity.connected) {
       // fetch page
       try {
-        var content = await api.page(key: key);
+        var content = await api.page(
+          key: key,
+          locale: locale,
+        );
 
         if (content == null) {
           // ignore: use_build_context_synchronously

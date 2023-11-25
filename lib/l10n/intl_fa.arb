@@ -1,0 +1,25 @@
+{
+  "@@locale": "fa",
+  "appTitle": "وال مال",
+  "@appTitle": {
+    "description": "وال مال"
+  },
+  "newWallpapers": "تازه ترین والپیپر ها",
+  "categories": "دسته بندی ها",
+  "colors": "رنگ ها",
+  "welcomeTo": "خوش آمدید به",
+  "wallmall": "وال مال",
+  "yourWallpaperApp": "برنامه والپیپر شما",
+  "noResultsForThisCategory": "نتیجه ای برای این دسته بندی وجود ندارد",
+  "countWallpapersForThisCategory": "{count} والپیپر برای این دسته بندی",
+  "noResultsForThisColor": "نتیجه ای برای این رنگ وجود ندارد",
+  "countWallpapersForThisColor": "{count} والپیپر برای این رنگ",
+  "myFavorites": "علاقه مندی های من",
+  "youDontHaveFavorites": "شما هیچ علاقه مندی ندارید",
+  "countWallpapersYouHaveFavorited": "شما {count} والپیپر را علاقه مندی کرده اید",
+  "searchWallpaper": "جستجوی والپیپر",
+  "setAsWallpaper": "تنظیم به عنوان والپیپر",
+  "privacy": "حریم خصوصی",
+  "version": "نسخه {version}",
+  "menu": "منو"
+}

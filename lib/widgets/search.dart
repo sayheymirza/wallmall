@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class SearchWidget extends StatefulWidget {
   const SearchWidget({super.key});
 
@@ -29,13 +31,13 @@ class _SearchWidgetState extends State<SearchWidget> {
           color: Colors.blueGrey.shade50,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: const Row(
+        child: Row(
           children: [
             // search text
             Expanded(
               child: Text(
-                'Search wallpaper',
-                style: TextStyle(
+                AppLocalizations.of(context)!.searchWallpaper,
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -43,7 +45,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               ),
             ),
             // search icon
-            Icon(Icons.search),
+            const Icon(Icons.search),
           ],
         ),
       ),

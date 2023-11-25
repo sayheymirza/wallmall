@@ -16,6 +16,8 @@ import 'package:wallmall/widgets/loading.dart';
 import 'package:wallmall/widgets/search.dart';
 import 'package:wallmall/widgets/wallpaper.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -154,12 +156,21 @@ class _HomeViewState extends State<HomeView> {
           // content
           content(
             children: [
-              if (wallpapers.isNotEmpty) title(text: "New Wallpapers"),
+              if (wallpapers.isNotEmpty)
+                title(
+                  text: AppLocalizations.of(context)!.newWallpapers,
+                ),
               if (wallpapers.isNotEmpty) news(wallpapers: wallpapers),
-              if (provider.categories.isNotEmpty) title(text: "Categories"),
+              if (provider.categories.isNotEmpty)
+                title(
+                  text: AppLocalizations.of(context)!.categories,
+                ),
               if (provider.categories.isNotEmpty)
                 categories(categories: provider.categories),
-              if (provider.colors.isNotEmpty) title(text: "Colors"),
+              if (provider.colors.isNotEmpty)
+                title(
+                  text: AppLocalizations.of(context)!.colors,
+                ),
               if (provider.colors.isNotEmpty) colors(colors: provider.colors),
               ...widgets,
               if (loading) loadingrid(),
@@ -275,9 +286,9 @@ class _HomeViewState extends State<HomeView> {
               onMenuTap();
             },
             icon: const Icon(Icons.menu),
-            label: const Text(
-              "Menu",
-              style: TextStyle(
+            label: Text(
+              AppLocalizations.of(context)!.menu,
+              style: const TextStyle(
                 color: Colors.black,
               ),
             ),
@@ -297,9 +308,9 @@ class _HomeViewState extends State<HomeView> {
       ),
       Row(
         children: [
-          const Text(
-            'Welcome to',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.welcomeTo,
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
@@ -308,7 +319,7 @@ class _HomeViewState extends State<HomeView> {
             width: 8,
           ),
           Text(
-            'Wallmall',
+            AppLocalizations.of(context)!.wallmall,
             style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
@@ -317,9 +328,9 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
-      const Text(
-        'your wallpaper app',
-        style: TextStyle(
+      Text(
+        AppLocalizations.of(context)!.yourWallpaperApp,
+        style: const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),

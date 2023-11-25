@@ -20,4 +20,12 @@ class ShareProvider extends ChangeNotifier {
     _colors = colors;
     notifyListeners();
   }
+
+  // i18n
+  String locale = "fa";
+
+  void changeLocale(String locale) {
+    this.locale = locale;
+    notifyListeners();
+  }
 }

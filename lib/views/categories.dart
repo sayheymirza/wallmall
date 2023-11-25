@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wallmall/api/api.dart';
+import 'package:wallmall/core/provider.dart';
 import 'package:wallmall/models/category.dart';
 import 'package:wallmall/widgets/category.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key});
@@ -85,6 +89,8 @@ class _CategoriesViewState extends State<CategoriesView> {
   }
 
   Widget header() {
+    var provider = Provider.of<ShareProvider>(context);
+
     return SliverAppBar(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
@@ -99,14 +105,16 @@ class _CategoriesViewState extends State<CategoriesView> {
                 vertical: 24,
                 horizontal: 24,
               ),
-              alignment: Alignment.bottomLeft,
-              child: const Column(
+              alignment: provider.locale == "en"
+                  ? Alignment.bottomLeft
+                  : Alignment.bottomRight,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "Categories",
-                    style: TextStyle(
+                    AppLocalizations.of(context)!.categories,
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),

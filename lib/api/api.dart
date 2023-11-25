@@ -283,7 +283,7 @@ class _Api {
   }
 
   // get page
-  Future<String?> page({required String key}) async {
+  Future<String?> page({required String key, required String locale}) async {
     try {
       var uri = Uri.parse("$_endpoint/api/app-pages");
 
@@ -291,7 +291,8 @@ class _Api {
         uri.replace(
           queryParameters: {
             "filters[key][\$eq]": key,
-            "filters[app][\$eq]": "wallmall"
+            "filters[app][\$eq]": "wallmall",
+            "locale": locale,
           },
         ),
         headers: {

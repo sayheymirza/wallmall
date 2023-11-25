@@ -14,6 +14,7 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:wallmall/widgets/loading.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WallpaperView extends StatefulWidget {
   const WallpaperView({super.key});
@@ -289,7 +290,9 @@ class _WallpaperViewState extends State<WallpaperView> {
                           setAsWallpaper();
                         },
                         icon: const Icon(Icons.wallpaper),
-                        label: const Text("Set as wallpaper"),
+                        label: Text(
+                          AppLocalizations.of(context)!.setAsWallpaper,
+                        ),
                         style: ElevatedButton.styleFrom(
                           surfaceTintColor: Colors.white,
                           backgroundColor:

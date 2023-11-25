@@ -1,12 +1,16 @@
 // this file show wallpapers filtered by color
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wallmall/api/api.dart';
 import 'package:wallmall/core/ad.dart';
+import 'package:wallmall/core/provider.dart';
 import 'package:wallmall/models/color.dart';
 import 'package:wallmall/models/wallpaper.dart';
 import 'package:wallmall/widgets/ad.dart';
 import 'package:wallmall/widgets/wallpaper.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ColorView extends StatefulWidget {
   const ColorView({super.key});
@@ -133,6 +137,8 @@ class _ColorViewState extends State<ColorView> {
   }
 
   Widget header() {
+    var provider = Provider.of<ShareProvider>(context);
+
     return SliverAppBar(
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
@@ -147,7 +153,9 @@ class _ColorViewState extends State<ColorView> {
                 vertical: 24,
                 horizontal: 24,
               ),
-              alignment: Alignment.bottomLeft,
+              alignment: provider.locale == "en"
+                  ? Alignment.bottomLeft
+                  : Alignment.bottomRight,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -166,8 +174,10 @@ class _ColorViewState extends State<ColorView> {
                     count == 0
                         ? loading
                             ? ""
-                            : "No results for this color"
-                        : "$count wallpapers for this color",
+                            : AppLocalizations.of(context)!
+                                .noResultsForThisColor
+                        : AppLocalizations.of(context)!
+                            .countWallpapersForThisColor(count),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
