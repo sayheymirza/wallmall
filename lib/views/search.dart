@@ -129,8 +129,8 @@ class _SearchViewState extends State<SearchView> {
     return Container(
       height: 56,
       padding: const EdgeInsets.only(
-        left: 4,
-        right: 20,
+        left: 20,
+        right: 4,
       ),
       margin: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top + 20,
