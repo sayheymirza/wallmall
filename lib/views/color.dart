@@ -129,6 +129,11 @@ class _ColorViewState extends State<ColorView> {
                         widgets,
                       ),
                     ),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 100,
+                      ),
+                    ),
                   ],
                 ),
               ),

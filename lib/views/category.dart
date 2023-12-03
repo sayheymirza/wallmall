@@ -129,6 +129,12 @@ class _CategoryViewState extends State<CategoryView> {
                         widgets,
                       ),
                     ),
+                    // padding for bottom
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 100,
+                      ),
+                    ),
                   ],
                 ),
               ),
